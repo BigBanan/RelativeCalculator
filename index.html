@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>亲戚计算器</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="bootstrap.min.css" media="screen" title="no title">
+        <script src='relationship.min.js'></script>
+        <script src='bananas.js'></script>
+        <script src='jisuanqi.js'></script>
+        <link rel="stylesheet" href="jisuanqi.css" media="screen" title="no title">
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                // do work
+                __mainJSQ()
+            });
+        </script>
+    </head>
+    <body>
+        <div class="jisuanqi">
+            <div class="result-main">
+                <div class="input-back">
+                    <span id='id-input-back' class="vertical-align"></span>
+                </div>
+                <div class="result-input">
+                    <div class="input-now vertical-align">
+                        <span id='id-input-now'></span><!--
+                        --><span id='id-span-shine' class='shineAnimation'>|</span>
+                    </div>
+                </div>
+                <div class="sex-option">
+                    <div class="sex-contain">
+                        <span>我是</span>
+                        <switch>
+                            <xuanxian class="">
+                                <span class='switch-boy'>男</span>
+                                <span class='switch-space'>&nbsp;</span>
+                                <span class='switch-girl'>女</span>
+                            </xuanxian>
+                        </switch>
+                        <span>生</span>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <table>
+                    <tr>
+                        <td data-type='父'>
+                            <span class='button' name="span">父</span>
+                        </td>
+                        <td data-type='母'>
+                            <span class='button' name="span">母</span>
+                        </td>
+                        <td data-type='C'>
+                            <span class='button' name="span">C</span>
+                        </td>
+                        <td data-type='AC'>
+                            <span class='button' name="span">AC</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-type='兄'>
+                            <span class='button' name="span">兄</span>
+                        </td>
+                        <td data-type='弟'>
+                            <span class='button' name="span">弟</span>
+                        </td>
+                        <td data-type='姐'>
+                            <span class='button' name="span">姐</span>
+                        </td>
+                        <td data-type='妹'>
+                            <span class='button' name="span">妹</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-type='夫'>
+                            <span class='button' name="span">夫</span>
+                        </td>
+                        <td data-type='妻'>
+                            <span class='button' name="span">妻</span>
+                        </td>
+                        <td data-type='11'>
+                            <span class='button' name="span"></span>
+                        </td>
+                        <td id='id-button-equal' data-type='=' rowspan="2">
+                            <span class='button' name="span">=</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-type='子'>
+                            <span class='button' name="span">子</span>
+                        </td>
+                        <td data-type='女'>
+                            <span class='button' name="span">女</span>
+                        </td>
+                        <td data-type='14'>
+                            <span class='button' name="span"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

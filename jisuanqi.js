@@ -44,7 +44,7 @@ const bindClicksEff = function() {
     const tds = es('td')
     for (var i = 0; i < tds.length; i++) {
         const td = tds[i]
-        td.addEventListener('click', function(event){
+        td.addEventListener('touchstart', function(event){
             t = event.target
             t.classList.add('click')
             setTimeout("clearAllByClassName('click')", 500)

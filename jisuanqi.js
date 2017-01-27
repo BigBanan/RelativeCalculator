@@ -32,12 +32,20 @@ const resultByFind = function(options) {
 const showResult = function(result) {
     var s = e('#id-input-now')
     if (result.length == 0) {
-        s.innerHTML = '您这关系也忒复杂了吧，没法算。'
+        s.innerHTML = '您家这关系也忒复杂了吧，没法算。'
     } else {
         s.innerHTML = result
         e('#id-input-back').innerHTML = options.text
     }
     options.text = ''
+}
+
+const clearClick = function() {
+    clearAllByClassName('click')
+}
+
+const clearClickEqual = function() {
+    clearAllByClassName('clickEqual')
 }
 
 const bindClicksEff = function() {
@@ -47,14 +55,14 @@ const bindClicksEff = function() {
         td.addEventListener('touchstart', function(event){
             t = event.target
             t.classList.add('click')
-            setTimeout("clearAllByClassName('click')", 500)
+            setTimeout(clearClick, 500)
         })
     }
 
     const eq = e('#id-button-equal')
     eq.addEventListener('click', function(){
         this.classList.add('clickEqual')
-        setTimeout("clearAllByClassName('clickEqual')", 501)
+        setTimeout(clearClickEqual, 501)
     })
 }
 

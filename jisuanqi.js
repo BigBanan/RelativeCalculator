@@ -114,7 +114,7 @@ const bindClickButton = function() {
 }
 
 const bindEventsJsq = function() {
-    bindClicksEff()
+    // bindClicksEff()
 
     bindSwitch()
 

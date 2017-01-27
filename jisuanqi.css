@@ -123,19 +123,19 @@ td {
 switch {
     display: inline-block;
     font-size: 0;
-    width: 4rem;
+    width: 6rem;
     overflow-x: hidden;
     vertical-align: bottom;
     border-radius: 0.5rem;
 }
 
 xuanxian {
-    width: 6rem;
+    width: 9rem;
     transition: 0.5s;
 }
 
 xuanxian > * {
-    width: 2rem;
+    width: 3rem;
     font-size: 2rem;
     padding: 0 0.3rem;
 }

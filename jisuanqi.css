@@ -52,15 +52,23 @@ td {
     background: #e66747 !important;
 }
 
+.result-header {
+    height: 10%
+}
+
 .input-back {
-    height: 40%;
+    height: 30%;
     text-align: right;
     padding: 0 1rem;
+    overflow: scroll;
+    padding-top: 1rem;
 }
 
 .result-input {
     height: 45%;
     padding: 0 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .input-now {
@@ -73,6 +81,7 @@ td {
     display: none
 }
 
+/* 闪动效果 */
 .shineAnimation {
     font-size: 3.5rem;
     animation: 1s shine infinite steps(1);
@@ -95,6 +104,22 @@ td {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* warning 动画 */
+.warning {
+    color: #f54444;
+    animation: 0.1s warn 5 alternate;
+    text-align: center;
+}
+
+@keyframes warn {
+    0% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(5%);
+    }
 }
 
 #id-input-back {

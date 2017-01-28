@@ -29,13 +29,24 @@ const resultByFind = function(options) {
     return r
 }
 
+const scrollToBottom = function(element, verticatElement) {
+    if(element.scrollHeight > element.offsetHeight) {
+        verticatElement.classList.remove('vertical-align')
+        element.scrollTop = element.scrollHeight
+    } else {
+        verticatElement.classList.add('vertical-align')
+    }
+}
+
 const showResult = function(result) {
     var s = e('#id-input-now')
     if (result.length == 0) {
         s.innerHTML = '您家这关系也忒复杂了吧，没法算。'
+        e('.input-now').classList.add('warning')
     } else {
         s.innerHTML = result
         e('#id-input-back').innerHTML = options.text
+        scrollToBottom(e('.input-back'), e('#id-input-back'))
     }
     options.text = ''
 }
@@ -60,14 +71,14 @@ const bindClicksEff = function() {
     }
 
     const eq = e('#id-button-equal')
-    eq.addEventListener('click', function(){
+    eq.addEventListener('touchstart', function(){
         this.classList.add('clickEqual')
         setTimeout(clearClickEqual, 501)
     })
 }
 
 const bindSwitch = function() {
-    e('xuanxian').addEventListener('click', function(event){
+    e('xuanxian').addEventListener('touchstart', function(event){
         console.log('switch')
         this.classList.toggle('girl')
         if(this.classList.contains('girl')) {
@@ -82,7 +93,8 @@ const bindClickButton = function() {
     const tds = es('td')
     for (var i = 0; i < tds.length; i++) {
         const td = tds[i]
-        td.addEventListener('click', function(event){
+        td.addEventListener('touchstart', function(event){
+            e('.input-now').classList.remove('warning')
             t = event.target
             const type = t.dataset.type
             // log(type)
@@ -116,7 +128,7 @@ const bindClickButton = function() {
                     e('#id-span-shine').classList.add('hidden')
                 }
             }
-
+            scrollToBottom(e('.result-input'), e('.input-now'))
         })
     }
 }

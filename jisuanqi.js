@@ -29,35 +29,37 @@ const resultByFind = function(options) {
     return r
 }
 
-const scrollToBottom = function(element, verticatElement) {
+const scrollToBottom = function(element, verticatMiddleElement) {
+    log(element.scrollHeight, element.offsetHeight)
     if(element.scrollHeight > element.offsetHeight) {
-        verticatElement.classList.remove('vertical-align')
+        verticatMiddleElement.classList.remove('vertical-align')
         element.scrollTop = element.scrollHeight
     } else {
-        verticatElement.classList.add('vertical-align')
+        verticatMiddleElement.classList.add('vertical-align')
     }
 }
 
 const showResult = function(result) {
     var s = e('#id-input-now')
+    e('#id-input-back').innerHTML = options.text
     if (result.length == 0) {
         s.innerHTML = '您家这关系也忒复杂了吧，没法算。'
+        scrollToBottom(e('.result-input'), e('.input-now'))
         e('.input-now').classList.add('warning')
     } else {
         s.innerHTML = result
-        e('#id-input-back').innerHTML = options.text
-        scrollToBottom(e('.input-back'), e('#id-input-back'))
     }
+    scrollToBottom(e('.input-back'), e('.input-back-contain'))
     options.text = ''
 }
 
-const clearClick = function() {
-    clearAllByClassName('click')
-}
-
-const clearClickEqual = function() {
-    clearAllByClassName('clickEqual')
-}
+// const clearClick = function() {
+//     clearAllByClassName('click')
+// }
+//
+// const clearClickEqual = function() {
+//     clearAllByClassName('clickEqual')
+// }
 
 const bindClicksEff = function() {
     const tds = es('td')
@@ -66,14 +68,24 @@ const bindClicksEff = function() {
         td.addEventListener('touchstart', function(event){
             t = event.target
             t.classList.add('click')
-            setTimeout(clearClick, 500)
+            // setTimeout(clearClick, 500)
+            var THIS = this
+            setTimeout(function(){
+                // log('THIS', THIS, THIS.t)
+                THIS.classList.remove('click')
+            }, 500)
         })
     }
 
     const eq = e('#id-button-equal')
     eq.addEventListener('touchstart', function(){
         this.classList.add('clickEqual')
-        setTimeout(clearClickEqual, 501)
+        // setTimeout(clearClickEqual, 501)
+        var THIS = this
+        setTimeout(function(){
+            // log('THIS', THIS, THIS.t)
+            THIS.classList.remove('clickEqual')
+        }, 500)
     })
 }
 
@@ -107,7 +119,7 @@ const bindClickButton = function() {
                 e('#id-input-now').innerHTML = options.text
             } else if(type === 'C') {
                 e('#id-span-shine').classList.remove('hidden')
-                if(options.text) {
+                if(options.text.length !== 0) {
                     options.text = options.text.split('的')
                     options.text.pop()
                     options.text = options.text.join('的')
@@ -119,7 +131,7 @@ const bindClickButton = function() {
             } else if(type === 'AC') {
                 e('#id-span-shine').classList.remove('hidden')
                 options.text = ''
-                e('#id-input-now').innerHTML = options.text
+                e('#id-input-now').innerHTML = ''
                 e('#id-input-back').innerHTML = ''
             } else if(type === '=') {
                 if (options.text.length != 0) {

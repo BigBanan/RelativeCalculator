@@ -105,7 +105,7 @@ td {
 /* warning 动画 */
 .warning {
     color: #f54444;
-    animation: 0.05s warn 4 alternate;
+    animation: 0.2s warn 4 alternate;
     text-align: center;
 }
 

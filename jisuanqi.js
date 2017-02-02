@@ -1,36 +1,22 @@
-const table = {
-    父: '爸爸',
-    母: '妈妈',
-    兄: '哥哥',
-    弟: '弟弟',
-    姐: '姐姐',
-    妹: '妹妹',
-    夫: '老公',
-    妻: '老婆',
-    子: '儿子',
-    女: '女儿',
-}
-
-const options = {
-    text: '',        //输入的文本
-    sex: 1,         //自己的性别：0女性,1男性
-}
-
 const resultByFind = function(options) {
     const o = {
-        text: options.text.slice(2),
         sex: options.sex,
         // 转换类型： 'default'算称谓,'chain'算关系(此时reverse无效)
         type: 'default',
         // 称呼方式： true对方称呼我,false我称呼对方
         reverse: false,
     }
+    if(options.text.includes('我的')) {
+        o.text = options.text.slice(2)
+    } else {
+        o.text = options.text
+    }
     var r = relationship(o).join('/')
     return r
 }
 
 const scrollToBottom = function(element, verticatMiddleElement) {
-    log(element.scrollHeight, element.offsetHeight)
+    // log(element.scrollHeight, element.offsetHeight)
     if(element.scrollHeight > element.offsetHeight) {
         verticatMiddleElement.classList.remove('vertical-align')
         element.scrollTop = element.scrollHeight
@@ -46,11 +32,12 @@ const showResult = function(result) {
         s.innerHTML = '您家这关系也忒复杂了吧，没法算。'
         scrollToBottom(e('.result-input'), e('.input-now'))
         e('.input-now').classList.add('warning')
+        options.text = ''
     } else {
         s.innerHTML = result
+        options.text = result.split('/')[0]
     }
     scrollToBottom(e('.input-back'), e('.input-back-contain'))
-    options.text = ''
 }
 
 // const clearClick = function() {
@@ -110,6 +97,7 @@ const bindClickButton = function() {
             t = event.target
             const type = t.dataset.type
             // log(type)
+            // log(options)
             if(table[type]) {
                 e('#id-span-shine').classList.remove('hidden')
                 if(options.text.length == 0) {
@@ -152,6 +140,25 @@ const bindEventsJsq = function() {
 
     bindClickButton()
 }
+
+const table = {
+    父: '爸爸',
+    母: '妈妈',
+    兄: '哥哥',
+    弟: '弟弟',
+    姐: '姐姐',
+    妹: '妹妹',
+    夫: '老公',
+    妻: '老婆',
+    子: '儿子',
+    女: '女儿',
+}
+
+const options = {
+    text: '',        //输入的文本
+    sex: 1,         //自己的性别：0女性,1男性
+}
+
 
 const __mainJSQ = function() {
 

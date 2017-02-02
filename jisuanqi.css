@@ -1,11 +1,20 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
 }
+
+html {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
 body {
     font-size: 0;
     height: 100vh;
     overflow: hidden;
+    line-height: 1.42857143;
 }
 
 .result-main {
@@ -21,6 +30,7 @@ body {
 table {
     width: 100%;
     height: 100%;
+    border-collapse: collapse;
 }
 
 td {
@@ -34,6 +44,7 @@ td {
     border-radius: 0.6rem;
     border: 0.2rem #363636 solid;
     transition: 1s background;
+    padding: 0;
 }
 
 .button {
@@ -105,16 +116,26 @@ td {
 /* warning 动画 */
 .warning {
     color: #f54444;
-    animation: 0.2s warn 4 alternate;
+    -webkit-animation: 0.1s warn 4 alternate;
+    animation: 0.1s warn 4 alternate;
     text-align: center;
 }
 
 @keyframes warn {
     0% {
-        transform: translateX(-5%);
+        transform: translate(-5%, -50%);
     }
     50% {
-        transform: translateX(5%);
+        transform: translate(5%, -50%);
+    }
+}
+
+@-webkit-keyframes warn {
+    0% {
+        -webkit-transform: translateX(-5%);
+    }
+    50% {
+        -webkit-transform: translateX(5%);
     }
 }
 

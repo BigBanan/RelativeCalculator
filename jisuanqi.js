@@ -146,7 +146,7 @@ const bindEventsJsq = function() {
 
     bindClickButton()
 
-    bindNoScroll()
+    // bindNoScroll()
 }
 
 const table = {

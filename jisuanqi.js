@@ -133,12 +133,20 @@ const bindClickButton = function() {
     }
 }
 
+const bindNoScroll = function() {
+    e('body').addEventListener('touchmove', function(event){
+        event.preventDefault()
+    })
+}
+
 const bindEventsJsq = function() {
     bindClicksEff()
 
     bindSwitch()
 
     bindClickButton()
+
+    bindNoScroll()
 }
 
 const table = {

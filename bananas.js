@@ -11,9 +11,9 @@ var log = function() {
     console.log.apply(console, arguments)
 }
 
-var e = (sel) => document.querySelector(sel)
+const e = (sel) => document.querySelector(sel)
 
-var es = (sel) => document.querySelectorAll(sel)
+const es = (sel) => document.querySelectorAll(sel)
 
 var inputRequired = function(input, button) {
     input.addEventListener('keyup', function(event){

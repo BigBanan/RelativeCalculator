@@ -4,6 +4,6 @@
 
 > 本程序目前只适用在移动端
 
-demo: http://www.bigbananas.cn/RelativeCalculator/
+demo: http://www.bananaSS.cn/RelativeCalculator/
 
 ![效果图](jisuanqi.gif)
